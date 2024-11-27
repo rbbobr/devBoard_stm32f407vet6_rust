@@ -1,26 +1,26 @@
-#![deny(unsafe_code)]
+// #![deny(unsafe_code)]
 #![no_main]
 #![no_std]
 
 
-// Print panic message to probe console
-use panic_probe as _;
+//
+use defmt::info;
+use embassy_executor::Spawner;
+use embassy_stm32;
+use embassy_stm32::Config;
+use embassy_stm32::Peripherals;
+use embassy_time::Timer;
+use {defmt_rtt as _, panic_probe as _};
+//
 
 
-use cortex_m_rt::entry;
-use stm32f4xx_hal::{
-    pac,
-    prelude::*,
-};
+#[embassy_executor::main]
+async fn main(_spawner: Spawner) -> ! {
+    let config: Config = Config::default();
+    let _p:Peripherals = embassy_stm32::init(config);
 
-// use embassy_hal_internal::{Peripheral, PeripheralRef};
-
-
-#[allow(clippy::empty_loop)]
-#[entry]
-fn main() -> ! {
-    
     loop {
-        
+        info!("Hello World!");
+        Timer::after_secs(1).await;
     }
 }
