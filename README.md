@@ -1,3 +1,8 @@
+
+# Stm32f407vet6 industrial development board
+
+## Description
+
 Параметр           |  Характеристика 
 -------------------|--------------------
 Power Supply Pins  | VDD: Core power supply (3.3V). Connect to a 3.3V regulated power source. <br> VSS: Core ground. Connect to the ground of the power source. <br> VDDA: Analog power supply (3.3V). Connect to the same 3.3V source as VDD. <br> VSSA: Analog ground. Connect to ground. <br> VREF+ / VREF-: Reference voltage for ADC. Typically connect VREF+ to a stable voltage reference (e.g., 3.3V) and VREF- to ground.
@@ -8,10 +13,7 @@ CAN2:              | CAN2_H (PD1): CAN High pin. <br> CAN2_L (PD0): CAN Low pin.
 Ethernet           | ETH_TX+ (PA1): Ethernet Transmit Positive pin. <br> ETH_TX- (PA2): Ethernet Transmit Negative pin. <br> ETH_RX+ (PA7): Ethernet Receive Positive pin. <br> ETH_RX- (PA6): Ethernet Receive Negative pin. <br> ETH_CLK (PC10): Ethernet Clock pin. <br> ETH_MDC (PC1): Management Data Clock pin. <br> ETH_MDIO (PC2): Management Data Input/Output pin. <br> ETH_RST (PF0): Ethernet Reset pin. <br> GND: Ground pin. 
 USB Host           | VBUS (PA9): USB power supply pin. <br> D+ (PA12): USB Data Positive pin. <br> D- (PA11): USB Data Negative pin. <br> GND: Ground pin.
 
-<details>
-<summary><b>![Board pic](../doc/pic/stm32f407vet6-development-board.jpg)</b></summary>
-  
-</details>
+
 
 # `stm32-template`
 
@@ -81,3 +83,7 @@ to intervene to uphold that code of conduct.
 
 [CoC]: https://www.rust-lang.org/policies/code-of-conduct
 </details>
+
+
+## Board picture
+  ![Board pic](./doc/pic/stm32f407vet6-development-board.jpg)
