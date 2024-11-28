@@ -6,6 +6,7 @@
             "type": "probe-rs-debug",
             "request": "launch",
             "name": "probe-rs-debugger",
+            "wireProtocol": "Swd",
             // "server": "127.0.0.1:50001", // For connecting to an existing probe-rs-debugger process
             "chip": "STM32F407VETx",
             "cwd": "${workspaceFolder}",
@@ -21,6 +22,7 @@
                             "showTimestamps": true
                         }
                     ],
+                    "programBinary": "C:/PJ/rust/devBoard_stm32f407vet6/target/thumbv7em-none-eabihf/debug/devBoard_stm32f407vet6"
                 },
             ],
             "runtimeExecutable": "probe-rs",
@@ -36,6 +38,7 @@
             "consoleLogLevel": "Console" //Info, Debug
             //"speed": 24000, //!MODIFY (or remove)
             //"probe": "VID:PID:<Serial>", //!MODIFY (or remove)
+            
         },
     ]
 }
