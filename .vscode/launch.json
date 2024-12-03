@@ -14,7 +14,7 @@
                 {
                     "coreIndex": 0,
                     "svdFile": "stm32f407.svd.patched",
-                    "rttEnabled": true,
+                    "rttEnabled": false,
                     "rttChannelFormats": [
                         {
                             "dataFormat": "String",
@@ -22,22 +22,22 @@
                             "showTimestamps": true
                         }
                     ],
-                    "programBinary": "C:/PJ/rust/devBoard_stm32f407vet6/target/thumbv7em-none-eabihf/debug/devBoard_stm32f407vet6"
-                },
+                    "programBinary": "C:/PJ/rust/devBoard_stm32f407vet6/target/thumbv7em-none-eabihf/debug/${workspaceFolderBasename}"                },
             ],
             "runtimeExecutable": "probe-rs",
             "runtimeArgs": ["dap-server"],
             "flashingConfig": {
-              "flashingEnabled": true,
-              "haltAfterReset": false,
-              "formatOptions": {
-                "format": "elf" //!MODIFY (or remove). Valid values are: 'bin', 'hex', 'elf'(default), 'idf'
+                "flashingEnabled": true,
+                "haltAfterReset": false,
+                "formatOptions": {
+                    "format": "elf" //!MODIFY (or remove). Valid values are: 'bin', 'hex', 'elf'(default), 'idf'
               }
             },
             "connectUnderReset": false,
-            "consoleLogLevel": "Console" //Info, Debug
+            "consoleLogLevel": "Info" //Info, Debug
             //"speed": 24000, //!MODIFY (or remove)
             //"probe": "VID:PID:<Serial>", //!MODIFY (or remove)
+            
             
         },
     ]

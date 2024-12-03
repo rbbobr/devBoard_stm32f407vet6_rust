@@ -26,5 +26,23 @@
                 "isDefault": true
             }
         }
+        ,
+        {
+            /*
+             * This is the default cargo build task,
+             * but we need to provide a label for it,
+             * so we can invoke it from the debug launcher.
+             */
+            "label": "cargo_run",
+            "dependsOn": "cargo_build",
+            "type": "cargo",
+            "command": "run",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+            
+        }
+
     ]
 }

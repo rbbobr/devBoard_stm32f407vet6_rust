@@ -25,5 +25,5 @@ target = "thumbv7em-none-eabihf"
 
 
 [env]
-DEFMT_LOG = "info"
+DEFMT_LOG = "debug"   # <- can change error, info, warn, debug, trace
 # DEFMT_LOG = "trace"
