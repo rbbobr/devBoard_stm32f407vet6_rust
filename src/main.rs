@@ -45,7 +45,6 @@ async fn main(_spawner: Spawner) -> ! {
 
 // tasks start
     (_spawner.spawn( demo_sleep_seconds() )).unwrap();  //task for delay test
-    spawner.spawn(task_with_priority("Task 1", 1)).unwrap();
     
 // gpio config end
     loop {
