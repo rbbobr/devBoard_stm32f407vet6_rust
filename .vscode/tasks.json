@@ -10,6 +10,7 @@
              * so we can invoke it from the debug launcher.
              */
             "label": "cargo_build",
+            "isBuildCommand": true,
             "type": "process",
             "command": "cargo",
             "args": [
@@ -25,8 +26,7 @@
                 "kind": "build",
                 "isDefault": true
             }
-        }
-        ,
+        },
         {
             /*
              * This is the default cargo build task,
@@ -41,8 +41,59 @@
                 "kind": "build",
                 "isDefault": true
             }
-            
+        },
+        {
+            /*
+            *  cargo size task
+            */
+            "label": "cargo_size",
+            "type": "cargo",
+            "command": "size",
+            "args": [
+                "--verbose",
+                "--release"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            /*
+            *  cargo size task
+            */
+            "label": "cargo_size_symbols",
+            "type": "cargo",
+            "command": "nm",
+            "args": [
+                "C:/PJ/rust/devBoard_stm32f407vet6/target/thumbv7em-none-eabihf/debug/${workspaceFolderBasename}",
+                "--release",
+                "--print-size",
+                "--size-sort"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            /*
+            *  cargo size task
+            */
+            "label": "cargo_bin_create",
+            "type": "cargo",
+            "command": "objcopy",
+            "args": [
+                "--release",
+                "--",
+                "-O",
+                "binary",
+                "app.bin"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
-
     ]
 }

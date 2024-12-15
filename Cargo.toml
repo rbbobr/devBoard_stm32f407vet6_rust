@@ -3,6 +3,10 @@ name = "devBoard_stm32f407vet6"
 version = "0.1.0"
 authors = ["rb bobr <dannobarret@gmail.com>"]
 edition = "2021"
+build = "build.rs"  # название скрипта построения
+
+[target.thumbv7em-none-eabihf]
+linker = "rust-lld"
 
 [dependencies]
 # добавлено из примера-------------------------------------------------------------------------
@@ -11,8 +15,8 @@ embassy-stm32 = { version = "0.1.0", features = ["defmt", "stm32f407ve", "unstab
 embassy-sync = { version = "0.6.1", features = ["defmt"] }
 embassy-executor = { version = "0.6.3", features = ["task-arena-size-32768", "arch-cortex-m", "executor-thread", "executor-interrupt", "defmt", "integrated-timers"] }
 embassy-time = { version = "0.3.2", features = ["defmt", "defmt-timestamp-uptime", "tick-hz-32_768"] }
-embassy-usb = { version = "0.3.0", features = ["defmt" ] }
-embassy-net = { version = "0.5.0", features = ["defmt", "tcp", "dhcpv4", "medium-ethernet", ] }
+# embassy-usb = { version = "0.3.0", features = ["defmt" ] }
+# embassy-net = { version = "0.5.0", features = ["defmt", "tcp", "dhcpv4", "medium-ethernet", ] }
 embassy-net-wiznet = { version = "0.1.0", features = ["defmt"] }
 embassy-futures = { version = "0.1.0" }
 
@@ -29,6 +33,10 @@ cortex-m-rt = "0.7"
 panic-probe = { version = "0.3.1", features = ["defmt"] }
 # Генерация -----------------------------------------------------------------------------------
 
+# freertos ----------------------------------------------------------------------------------
+freertos-rust = "*"
+# freertos ----------------------------------------------------------------------------------
+
 
 
 # добавлено из примера-------------------------------------------------------------------------
@@ -43,7 +51,7 @@ critical-section = "1.1"
 nb = "1.1.0"
 embedded-storage = "0.3.1"
 micromath = "2.0.0"
-usbd-hid = "0.8.1"
+# usbd-hid = "0.8.1"
 static_cell = "2"
 chrono = { version = "^0.4", default-features = false}
 # добавлено из примера-------------------------------------------------------------------------
@@ -53,13 +61,15 @@ chrono = { version = "^0.4", default-features = false}
 version = "0.22.0"
 features = ["stm32f407", "defmt", ]
 
+
+
 # Set the default for dependencies.
 [profile.dev.package."*"]
-opt-level = "s"
+opt-level = 2
 
 [profile.release]
 codegen-units = 1
 incremental = false
-debug = true
+debug = false
 lto = true
-opt-level = "s"
+opt-level = 2
